@@ -35,7 +35,10 @@ const P = styled.p `
 `;
 
 const StepsContainer = styled.div `
-  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 55vh;
   @media (max-width: 768px) {
     min-height: 70vh;
   }
@@ -46,17 +49,13 @@ const StepsContainer = styled.div `
 `;
 
 const StepContent = styled.div`
-  display: ${({displayNone}) => displayNone ? 'block' : 'none'};
-  margin: 1.5rem 0.5rem;
+  display: ${({ displayNone }) => displayNone ? 'block' : 'none'};
   -webkit-box-shadow: 3px 3px 15px 0px rgba(50, 50, 50, 0.38);
   -moz-box-shadow: 3px 3px 15px 0px rgba(50, 50, 50, 0.38);
   box-shadow: 3px 3px 15px 0px rgba(50, 50, 50, 0.38);
   width: 50%;
   min-height: 40vh;
   padding: 2rem 1.5rem;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   font-family: 'Open Sans', sans-serif;
   border-radius: 2px;
   @media (max-width: 768px) {
@@ -76,7 +75,7 @@ const ButtonsContainer = styled.div`
 `;
 
 const Button = styled.button `
-   display: ${({displayNone}) => displayNone ? 'none' : 'inline-block'};
+   display: ${({ displayNone }) => displayNone ? 'none' : 'inline-block'};
    background: #00bf9a;
    width: 15%;
    padding: 10px;
@@ -123,7 +122,6 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
     return (
       <div>
         <Helmet title="HomePage" />
-        
         <MainContent>
           <HeaderBar></HeaderBar>
           <HeaderOne>Step {this.state.step + 1}</HeaderOne>
@@ -132,36 +130,29 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
             <StepContent displayNone={this.state.step === 0}>
               <P>In the upper-right corner of any page, click <BoldSpan>+</BoldSpan>, and then click <BoldSpan>New repository.</BoldSpan></P>
             </StepContent>
-            
             <StepContent displayNone={this.state.step === 1}>
               <P>Type a short, memorable name for your repository. For example, &#39;hello-world&#39;</P>
             </StepContent>
-            
             <StepContent displayNone={this.state.step === 2}>
               <P>Optionally, add a description of your repository. For example, &#39;My first repository on GitHub.&#39;</P>
             </StepContent>
-            
             <StepContent displayNone={this.state.step === 3}>
               <P>Choose between creating a public or private repository.</P>
               <ul>
-                <li><BoldSpan>Public</BoldSpan> repositories are a great choice for getting started. They're visible to any user on GitHub, so you can benefit from a collaborative community.</li>
-                <li><BoldSpan>Private</BoldSpan> repositories require a little more setup. They're only available to you, the repository owner, as well as any collaborators you choose to share with. Private repositories are only available for paid accounts. For more information, see &#39;GitHub's billing plans.&#39;</li>
+                <li><BoldSpan>Public</BoldSpan> repositories are a great choice for getting started. They&apos;re visible to any user on GitHub, so you can benefit from a collaborative community.</li>
+                <li><BoldSpan>Private</BoldSpan> repositories require a little more setup. They&apos;re only available to you, the repository owner, as well as any collaborators you choose to share with. Private repositories are only available for paid accounts. For more information, see &#39;GitHub&apos;s billing plans.&#39;</li>
               </ul>
             </StepContent>
-            
             <StepContent displayNone={this.state.step === 4}>
               <P>Select <BoldSpan>Initialize this repository with a README.</BoldSpan></P>
             </StepContent>
-            
             <StepContent displayNone={this.state.step === 5}>
               <P>Click <BoldSpan>Create repository.</BoldSpan></P>
             </StepContent>
-
             <StepContent displayNone={this.state.step === 6}>
-              <P>Congratulations! You've successfully created your first repository, and initialized it with a README file.</P>
+              <P>Congratulations! You&apos;ve successfully created your first repository, and initialized it with a README file.</P>
             </StepContent>
           </StepsContainer>
-
           <ButtonsContainer>
             <Button onClick={this.previousStep} displayNone={this.state.step === 0}>
               Previous
